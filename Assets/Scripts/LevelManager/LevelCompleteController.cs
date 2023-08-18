@@ -24,7 +24,7 @@ public class LevelCompleteController : MonoBehaviour
         {
             Debug.Log(" Level Finished by the Player ");
             Debug.Log(" Load New Level ");
-            Invoke("Load_Scene", TimeDelay);
+            Invoke(nameof(Load_Scene), TimeDelay);
         }
 
     }
@@ -36,7 +36,7 @@ public class LevelCompleteController : MonoBehaviour
         {
             Debug.Log(" Player Died ");
             animator.SetTrigger("Death");
-            Invoke("Restart_Scene", TimeDelay);
+            Invoke(nameof(Restart_Scene), TimeDelay);
         }
         
     }

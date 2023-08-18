@@ -36,7 +36,7 @@ public class HealthController : MonoBehaviour
                 animator.SetTrigger("Death");
                 GetComponent<PlayerController>().enabled = false;
                 dead = true;
-                Invoke("Load_Scene" , TimeDelay);
+                Invoke(nameof(Load_Scene) , TimeDelay);
             }
         }
     }
