@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 5683805777109378455}
   - component: {fileID: 3283899742976562841}
   - component: {fileID: 1427029619061578323}
-  - component: {fileID: 8837433006083000217}
   - component: {fileID: 3528676412125950712}
   - component: {fileID: 8841479410454289095}
   m_Layer: 3
@@ -292,22 +291,7 @@ MonoBehaviour:
   scoreController: {fileID: 0}
   animator: {fileID: 1534014322983105027}
   speed: 3
-  jump: 35
---- !u!114 &8837433006083000217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4060767588766888550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 064ff2cb95452cd46abac22277169b16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneID: 2
-  TimeDelay: 1
-  gameOverController: {fileID: 0}
+  jump: 43
 --- !u!114 &3528676412125950712
 MonoBehaviour:
   m_ObjectHideFlags: 0
