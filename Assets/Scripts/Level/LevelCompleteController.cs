@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -8,8 +6,8 @@ public class LevelCompleteController : MonoBehaviour
 {
     private Animator animator;
     [SerializeField] private float TimeDelay = 2f;
+    [SerializeField] private Button buttonHome;
 
-    public Button buttonHome;
     public GameObject LevelCompleteScreen;
 
     public GameOverController gameOverController;

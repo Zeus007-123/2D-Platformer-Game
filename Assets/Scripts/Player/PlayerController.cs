@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -106,10 +102,10 @@ public class PlayerController : MonoBehaviour
                 
             // move character vertically
             if (shiftPressed){
-                    playerBody.AddForce(new Vector2(0f, 1.3f * jump), ForceMode2D.Impulse);
+                    playerBody.AddForce(new Vector2(0f, 2f * jump), ForceMode2D.Impulse);
                 }
                 else{
-                    playerBody.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
+                    playerBody.AddForce(new Vector2(0f, 1.3f * jump), ForceMode2D.Impulse);
                 }
 
             }

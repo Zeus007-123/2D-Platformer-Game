@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
-    public Button buttonRestart;
-    public Button buttonHome;
+    [SerializeField] private Button buttonRestart;
+    [SerializeField] private Button buttonHome;
 
     public ParticleController particleController;
 
