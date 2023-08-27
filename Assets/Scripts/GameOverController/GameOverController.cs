@@ -9,7 +9,7 @@ public class GameOverController : MonoBehaviour
     public Button buttonRestart;
     public Button buttonHome;
 
-    //public ParticleController particleController;
+    public ParticleController particleController;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class GameOverController : MonoBehaviour
         SoundManager.Instance.Play(Sounds.PlayerDeath);
         SoundManager.Instance.Play(Sounds.DeathMusic);
         gameObject.SetActive(true);
-        //particleController.PlayOnLevelFail();
+        particleController.PlayOnLevelFail();
     }
 
     private void ReloadLevel()

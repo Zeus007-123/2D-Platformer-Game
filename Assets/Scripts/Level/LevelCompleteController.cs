@@ -14,7 +14,7 @@ public class LevelCompleteController : MonoBehaviour
 
     public GameOverController gameOverController;
 
-     private void Awake()
+    private void Awake()
     {
         buttonHome.onClick.AddListener(GoHome);
     }
