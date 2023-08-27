@@ -127,8 +127,9 @@ public class EnemyController : MonoBehaviour
 
         if(playerController != null)
         {
-                healthController.TakeDamage(damage);
             
+            healthController.TakeDamage(damage);
+            SoundManager.Instance.Play(Sounds.EnemyAttack);
         }
     }
 

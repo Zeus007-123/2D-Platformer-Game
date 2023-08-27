@@ -52,6 +52,8 @@ public class LevelCompleteController : MonoBehaviour
     private void Load_Scene()
     {
         Debug.Log(" Level Completed ");
+        SoundManager.Instance.Play(Sounds.PlayerLevelWinVoice);
+        SoundManager.Instance.Play(Sounds.Teleporter);
         LevelCompleteScreen.SetActive(true);
     }
 
@@ -65,6 +67,7 @@ public class LevelCompleteController : MonoBehaviour
     private void GoHome()
     {
         Debug.Log(" Going to Home Lobby Screen/Scene ");
+        SoundManager.Instance.Play(Sounds.ButtonClick);
         SceneManager.LoadScene(0);
     }
 }

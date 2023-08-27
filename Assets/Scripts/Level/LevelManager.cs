@@ -10,14 +10,17 @@ public class LevelManager : MonoBehaviour
     private static LevelManager instance;
     public static LevelManager Instance { get { return instance; } }
 
+    public Button buttonReset;
     public string[] Levels;
 
     private void Awake()
     {
+        buttonReset.onClick.AddListener(Reset);
+
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(instance);
         } else
         {
             Destroy(gameObject);
@@ -56,5 +59,11 @@ public class LevelManager : MonoBehaviour
         {
             SetLevelStatus(Levels[nextSceneIndex], LevelStatus.Unlocked);
         }
+    }
+
+    private void Reset()
+    {
+        Debug.Log(" Reseting Player Prefs to initial state ");
+        PlayerPrefs.DeleteAll();
     }
 }

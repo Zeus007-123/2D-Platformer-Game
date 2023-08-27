@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private bool shiftPressed = false;
     private bool ctrlPressed = false;
     private bool isGrounded = false;
+    private bool isMoving = false;
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -22,8 +25,10 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
+        SoundManager.Instance.Play(Sounds.PlayerEntryVoice);
         animator = gameObject.GetComponent<Animator>();
         playerBody = gameObject.GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void PickUpKey()
@@ -37,6 +42,8 @@ public class PlayerController : MonoBehaviour
             if (collision.gameObject.CompareTag("Ground"))
             {
                 isGrounded = true;
+                SoundManager.Instance.Play(Sounds.PlayerLand);
+                SoundManager.Instance.Play(Sounds.PlayerMove);
                 Debug.Log("Player Grounded");
             }
 
@@ -57,10 +64,12 @@ public class PlayerController : MonoBehaviour
 
     private void MoveCharacter(float horizontal, float vertical)
         {
-            // move character horizontally
-            //walk and run
+        // move character horizontally
+        //walk and run
+            
             Vector3 position = transform.position;
-            if(shiftPressed)                          
+            
+            if (shiftPressed)                          
             {
                 position.x += horizontal * speed * Time.deltaTime * 2;  //Run
             }
@@ -68,13 +77,35 @@ public class PlayerController : MonoBehaviour
             {
                 position.x += horizontal * speed * Time.deltaTime;     //Walk
             }
-            transform.position = position; 
+            
+            transform.position = position;
 
-            if(vertical > 0 && isGrounded)
+            if (horizontal != 0 && isGrounded)
             {
+                isGrounded = true;
+                isMoving = true;
+            }
+            else
+            {
+                isMoving = false;
+            }
+
+            if (isMoving && !audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+            if (!isMoving)
+            {
+                audioSource.Stop();
+            }
+
+            if (vertical > 0 && isGrounded)
+            {
+                SoundManager.Instance.Play(Sounds.PlayerJump);
                 isGrounded = false;
-                // move character vertically
-                if(shiftPressed){
+                
+            // move character vertically
+            if (shiftPressed){
                     playerBody.AddForce(new Vector2(0f, 1.3f * jump), ForceMode2D.Impulse);
                 }
                 else{
@@ -88,6 +119,7 @@ public class PlayerController : MonoBehaviour
     {
         if (shiftPressed)                          // For Run animation, I make speed variable > 1.99, Pressing L.Shift
         {
+            
             horizontal = 2 * horizontal;
         }
          animator.SetBool("IsWalking", (horizontal != 0 ? true : false));
@@ -116,7 +148,7 @@ public class PlayerController : MonoBehaviour
         //Jump Animation
         if( vertical > 0 )
         {
-           animator.SetBool("IsJumping", true);
+            animator.SetBool("IsJumping", true);
         } else 
         {
             animator.SetBool("IsJumping", false);
