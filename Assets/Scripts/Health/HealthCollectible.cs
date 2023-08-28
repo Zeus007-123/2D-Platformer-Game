@@ -6,9 +6,12 @@ public class HealthCollectible : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
+        HealthController healthController = playerController.GetComponent<HealthController>();
+
+        if (playerController != null && healthController != null)
         {
-            collision.GetComponent<HealthController>().AddHealth(healthValue);
+            healthController.AddHealth(healthValue);
             gameObject.SetActive(false);
         }
     }

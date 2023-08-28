@@ -1,11 +1,11 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private HealthController playerHealth;
+    public HealthController playerHealth;
     [SerializeField] private Image totalhealthBar;
-    [SerializeField] private Image currenthealthBar;
+    //[SerializeField] private Image currenthealthBar;
 
     private void Start()
     {
@@ -22,4 +22,4 @@ public class HealthBar : MonoBehaviour
         currenthealthBar.fillAmount = playerHealth.currentHealth / 10;
     }
 
-}
+}*/
