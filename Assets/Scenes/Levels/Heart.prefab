@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2067482617857433473}
   - component: {fileID: 7699746630022925829}
   - component: {fileID: 5867870011095580539}
-  - component: {fileID: 3397566996124898777}
+  - component: {fileID: 8315714150493474787}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
---- !u!114 &3397566996124898777
+--- !u!114 &8315714150493474787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

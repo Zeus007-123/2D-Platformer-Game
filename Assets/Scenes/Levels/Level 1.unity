@@ -1165,6 +1165,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heart (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8315714150493474787, guid: d626a022eba261b4d8eca3ebd5980d6e,
+        type: 3}
+      propertyPath: TimeDelay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3063,6 +3068,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heart
       objectReference: {fileID: 0}
+    - target: {fileID: 8315714150493474787, guid: d626a022eba261b4d8eca3ebd5980d6e,
+        type: 3}
+      propertyPath: TimeDelay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3208,9 +3218,19 @@ PrefabInstance:
       objectReference: {fileID: 321666704}
     - target: {fileID: 8841479410454289095, guid: 9430f5a651ff48645b75128227a87775,
         type: 3}
+      propertyPath: healthValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841479410454289095, guid: 9430f5a651ff48645b75128227a87775,
+        type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 653429294740093642}
+    - target: {fileID: 8841479410454289095, guid: 9430f5a651ff48645b75128227a87775,
+        type: 3}
+      propertyPath: currentHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8841479410454289095, guid: 9430f5a651ff48645b75128227a87775,
         type: 3}
       propertyPath: totalhealthBar
@@ -3232,7 +3252,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3463178348959196611, guid: 8633c2862a22c0e449031c0a17f7bc08,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3528676412125950712, guid: 9430f5a651ff48645b75128227a87775, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

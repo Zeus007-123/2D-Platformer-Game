@@ -3814,10 +3814,31 @@ PrefabInstance:
       objectReference: {fileID: 22323480}
     - target: {fileID: 8841479410454289095, guid: 9430f5a651ff48645b75128227a87775,
         type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 653429294740093642}
+    - target: {fileID: 8841479410454289095, guid: 9430f5a651ff48645b75128227a87775,
+        type: 3}
+      propertyPath: currentHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841479410454289095, guid: 9430f5a651ff48645b75128227a87775,
+        type: 3}
+      propertyPath: totalhealthBar
+      value: 
+      objectReference: {fileID: 18219362}
+    - target: {fileID: 8841479410454289095, guid: 9430f5a651ff48645b75128227a87775,
+        type: 3}
+      propertyPath: currenthealthBar
+      value: 
+      objectReference: {fileID: 1132992579}
+    - target: {fileID: 8841479410454289095, guid: 9430f5a651ff48645b75128227a87775,
+        type: 3}
       propertyPath: gameOverController
       value: 
       objectReference: {fileID: 22323480}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3528676412125950712, guid: 9430f5a651ff48645b75128227a87775, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3948,6 +3969,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &653429294740093642 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8841479410454289095, guid: 9430f5a651ff48645b75128227a87775,
+    type: 3}
+  m_PrefabInstance: {fileID: 653429294740093638}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653429294740093639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c69a8f92cd1edf4982030a9132b42b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7069379361730138053
 PrefabInstance:
   m_ObjectHideFlags: 0

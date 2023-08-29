@@ -12,6 +12,7 @@ public class HealthCollectible : MonoBehaviour
         if (playerController != null && healthController != null)
         {
             healthController.AddHealth(healthValue);
+            SoundManager.Instance.Play(Sounds.KeyPickUp);
             gameObject.SetActive(false);
         }
     }
