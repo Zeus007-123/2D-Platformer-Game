@@ -1,15 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LevelCompleteController : MonoBehaviour
 {
     private Animator animator;
-    [SerializeField] private int SceneID = 1;
     [SerializeField] private float TimeDelay = 2f;
 
+    public Button buttonHome;
+    public GameObject LevelCompleteScreen;
+
     public GameOverController gameOverController;
+
+     private void Awake()
+    {
+        buttonHome.onClick.AddListener(GoHome);
+    }
 
     private void Start()
     {
@@ -23,7 +31,7 @@ public class LevelCompleteController : MonoBehaviour
         if (playerController != null)
         {
             Debug.Log(" Level Finished by the Player ");
-            Debug.Log(" Load New Level ");
+            LevelManager.Instance.MarkCurrentLevelComplete();
             Invoke(nameof(Load_Scene), TimeDelay);
         }
 
@@ -43,8 +51,8 @@ public class LevelCompleteController : MonoBehaviour
 
     private void Load_Scene()
     {
-        Debug.Log(" Loading New Level ");
-        SceneManager.LoadScene(SceneID);
+        Debug.Log(" Level Completed ");
+        LevelCompleteScreen.SetActive(true);
     }
 
     public void Restart_Scene()
@@ -52,5 +60,11 @@ public class LevelCompleteController : MonoBehaviour
         Debug.Log(" Reloading Current Active Scene ");
         gameOverController.PlayerDied();
         GetComponent<PlayerController>().enabled = false;
+    }
+
+    private void GoHome()
+    {
+        Debug.Log(" Going to Home Lobby Screen/Scene ");
+        SceneManager.LoadScene(0);
     }
 }
