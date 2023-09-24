@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -123,12 +120,13 @@ public class EnemyController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-        HealthController healthController = collision.gameObject.GetComponent<HealthController>();
+        HealthController healthController = playerController.GetComponent<HealthController>();
 
-        if(playerController != null)
+        if (playerController != null && healthController != null)
         {
-                healthController.TakeDamage(damage);
             
+            healthController.TakeDamage(damage);
+            SoundManager.Instance.Play(Sounds.EnemyAttack);
         }
     }
 

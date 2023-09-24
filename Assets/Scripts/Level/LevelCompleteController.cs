@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -8,13 +6,13 @@ public class LevelCompleteController : MonoBehaviour
 {
     private Animator animator;
     [SerializeField] private float TimeDelay = 2f;
+    [SerializeField] private Button buttonHome;
 
-    public Button buttonHome;
     public GameObject LevelCompleteScreen;
 
     public GameOverController gameOverController;
 
-     private void Awake()
+    private void Awake()
     {
         buttonHome.onClick.AddListener(GoHome);
     }
@@ -52,6 +50,8 @@ public class LevelCompleteController : MonoBehaviour
     private void Load_Scene()
     {
         Debug.Log(" Level Completed ");
+        SoundManager.Instance.Play(Sounds.PlayerLevelWinVoice);
+        SoundManager.Instance.Play(Sounds.Teleporter);
         LevelCompleteScreen.SetActive(true);
     }
 
@@ -65,6 +65,7 @@ public class LevelCompleteController : MonoBehaviour
     private void GoHome()
     {
         Debug.Log(" Going to Home Lobby Screen/Scene ");
+        SoundManager.Instance.Play(Sounds.ButtonClick);
         SceneManager.LoadScene(0);
     }
 }

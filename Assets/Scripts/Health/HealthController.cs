@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
 {
@@ -10,8 +7,12 @@ public class HealthController : MonoBehaviour
     private bool dead;
     [SerializeField]private float startingHealth;
     [SerializeField] private float TimeDelay = 2f;
-    public float currentHealth {get; private set; } 
+    [SerializeField] private Image currenthealthBar;
+    [SerializeField] private Image totalhealthBar;
+
+    public float currentHealth;
     public GameOverController gameOverController;
+    public HealthController playerHealth;
 
     private void Awake()
     {
@@ -19,9 +20,16 @@ public class HealthController : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        totalhealthBar.fillAmount = playerHealth.currentHealth / 10;
+    }
+
     public void TakeDamage(float _damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
+
+        Invoke(nameof(Cur_Health),0f);
         
         if (currentHealth > 0)
         {
@@ -39,6 +47,19 @@ public class HealthController : MonoBehaviour
                 Invoke(nameof(Load_Scene) , TimeDelay);
             }
         }
+    }
+
+    public void AddHealth(float _value)
+    {
+        Debug.Log("Current Health1" + currentHealth);
+        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
+        Invoke(nameof(Cur_Health), 0f);
+        Debug.Log("Current Health2" + currentHealth);
+    }
+
+    private void Cur_Health()
+    {
+        currenthealthBar.fillAmount = playerHealth.currentHealth / 10;
     }
 
     private void Load_Scene()

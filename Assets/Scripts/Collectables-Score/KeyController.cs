@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class KeyController : MonoBehaviour
@@ -11,6 +9,7 @@ public class KeyController : MonoBehaviour
         if(playerController != null)
         {
             playerController.PickUpKey();
+            SoundManager.Instance.Play(Sounds.KeyPickUp);
             Destroy(gameObject);
         }
     }

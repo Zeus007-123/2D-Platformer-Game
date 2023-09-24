@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -27,10 +25,14 @@ public class LevelLoader : MonoBehaviour
 
             case LevelStatus.Unlocked:
                 SceneManager.LoadScene(LevelName);
+                SoundManager.Instance.Play(Sounds.ButtonClick);
+                SoundManager.Instance.Play(Sounds.DoorOpening);
                 break;
 
             case LevelStatus.Completed:
                 SceneManager.LoadScene(LevelName);
+                SoundManager.Instance.Play(Sounds.ButtonClick);
+                SoundManager.Instance.Play(Sounds.DoorOpening);
                 break;
         }
         

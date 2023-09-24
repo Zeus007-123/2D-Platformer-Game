@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class LobbyController : MonoBehaviour
 {
@@ -19,11 +16,13 @@ public class LobbyController : MonoBehaviour
 
     private void PlayGame()
     {
+        SoundManager.Instance.Play(Sounds.ButtonClick);
         LevelSelection.SetActive(true);
     } 
 
     private void QuitGame()
     {
+        SoundManager.Instance.Play(Sounds.ButtonClick);
         Application.Quit();
     } 
 }
